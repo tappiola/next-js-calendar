@@ -1,0 +1,20 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Holidays {
+  id   Int      @id @default(autoincrement())
+  date DateTime @unique
+  name String
+}
+
+model Vacations {
+  id   Int      @id @default(autoincrement())
+  date DateTime @unique
+  name String
+}
