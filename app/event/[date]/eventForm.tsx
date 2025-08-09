@@ -21,7 +21,6 @@ export default function EventForm({
         return error;
       }
       router.push(returnRoute);
-      return null;
     },
     null,
   );
@@ -37,7 +36,6 @@ export default function EventForm({
   const onDelete = async () => {
     await deleteVacation(date);
     await router.push(returnRoute);
-    // TODO: need to refetch
   };
 
   return (
@@ -45,11 +43,13 @@ export default function EventForm({
       open={true}
       onClose={() => router.push(returnRoute)}
       footer={
-        <div className="flex gap-7 text-neutral-400 hover:text-neutral-50">
+        <div className="flex gap-7 text-neutral-400 hover:text-neutral-50 items-center">
           {event && (
-            <button className="hover:cursor-pointer" onClick={onDelete}>
-              Delete
-            </button>
+            <form action={onDelete}>
+              <button type="submit" className="hover:cursor-pointer">
+                Delete
+              </button>
+            </form>
           )}
           <button
             type="submit"

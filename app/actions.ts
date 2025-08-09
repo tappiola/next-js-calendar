@@ -1,6 +1,7 @@
 "use server";
 import prisma from "@/lib/prisma";
 import { z } from "zod";
+import { revalidatePath } from "next/cache";
 
 const dateSchema = z.string().transform((val, ctx) => {
   const parsed = new Date(val);
@@ -45,6 +46,8 @@ export async function createVacation(formData: FormData): Promise<FormState> {
     update: { name: title },
     create: { date, name: title },
   });
+
+  revalidatePath("/");
 }
 
 export const deleteVacation = async (date: string) => {
@@ -54,11 +57,13 @@ export const deleteVacation = async (date: string) => {
     throw new Error(error.issues[0].message);
   }
 
-  return await prisma.vacations.delete({
+  await prisma.vacations.delete({
     where: {
       date: data,
     },
   });
+
+  revalidatePath("/");
 };
 
 export const getEventByDate = async (date: string) => {

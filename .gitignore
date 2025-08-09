@@ -1,6 +1,7 @@
 node_modules
 .env
 .idea
+.next
 next-env.d.ts
 *.db
 migrations
