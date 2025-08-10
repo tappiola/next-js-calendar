@@ -1,4 +1,4 @@
-# TanStack Start Event Calendar
+# Next.JS Event Calendar
 
 An event calendar built with [Next.js](https://nextjs.org/). It uses App Router, [Tailwind CSS](https://tailwindcss.com) for styling, and a Prisma-powered backend backed by SQLite.
 
