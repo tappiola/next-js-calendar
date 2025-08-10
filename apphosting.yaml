@@ -1,0 +1,5 @@
+env:
+  - variable: DATABASE_URL
+    secret: calendar-nextjs-db
+    availability:
+      - RUNTIME
