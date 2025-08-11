@@ -1,6 +1,6 @@
 # Next.JS Event Calendar
 
-An event calendar built with [Next.js](https://nextjs.org/). It uses App Router, [Tailwind CSS](https://tailwindcss.com) for styling, and a Prisma-powered backend backed by SQLite.
+An event calendar built with [Next.js](https://nextjs.org/). It uses App Router, [Tailwind CSS](https://tailwindcss.com) for styling, and a Prisma-powered backend backed by PostgreSQL.
 
 Same logic has implemented using [Next.js](https://github.com/tappiola/next-js-calendar) to compare capabilites of frameworks.
 
@@ -14,10 +14,10 @@ Same logic has implemented using [Next.js](https://github.com/tappiola/next-js-c
 
 2. **Initialize the database**
 
-   Create a `.env` file in the project root with:
+   Create a `.env` file in the project root with a PostgreSQL connection URL, for example:
 
    ```env
-   DATABASE_URL="file:./dev.db"
+   DATABASE_URL="postgresql://postgres:postgres@localhost:5432/tanstack_calendar"
    ```
 
    Then run:
